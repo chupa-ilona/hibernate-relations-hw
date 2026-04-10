@@ -7,7 +7,10 @@ import mate.academy.hibernate.relations.service.ActorService;
 import mate.academy.hibernate.relations.util.HibernateUtil;
 
 public class ActorServiceImpl implements ActorService {
-    private final ActorDao actorDao = new ActorDaoImpl(HibernateUtil.getSessionFactory());
+    private ActorDao actorDao = new ActorDaoImpl(HibernateUtil.getSessionFactory());
+
+    public ActorServiceImpl() {
+    }
 
     @Override
     public Actor add(Actor actor) {

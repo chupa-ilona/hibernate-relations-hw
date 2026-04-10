@@ -8,6 +8,7 @@ public class Actor implements Cloneable {
     private String name;
 
     @jakarta.persistence.ManyToOne
+    @jakarta.persistence.JoinColumn(name = "country_id")
     private Country country;
 
     public Actor() {
