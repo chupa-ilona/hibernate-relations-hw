@@ -35,6 +35,8 @@ public class ActorDaoImpl extends AbstractDao implements ActorDao {
             return session.createQuery("FROM Actor a WHERE a.id = :id", Actor.class)
                     .setParameter("id", id)
                     .uniqueResultOptional();
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't get actor by id: " + id, e);
         }
     }
 }

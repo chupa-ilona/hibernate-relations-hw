@@ -35,6 +35,8 @@ public class CountryDaoImpl extends AbstractDao implements CountryDao {
             return session.createQuery("FROM Country c WHERE c.id = :id", Country.class)
                     .setParameter("id", id)
                     .uniqueResultOptional();
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't get country by id: " + id, e);
         }
     }
 }

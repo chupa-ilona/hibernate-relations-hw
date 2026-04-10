@@ -35,6 +35,8 @@ public class MovieDaoImpl extends AbstractDao implements MovieDao {
             return session.createQuery("FROM Movie m WHERE m.id = :id", Movie.class)
                     .setParameter("id", id)
                     .uniqueResultOptional();
+        } catch (Exception e) {
+            throw new DataProcessingException("Can't get movie by id: " + id, e);
         }
     }
 }
